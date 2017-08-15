@@ -24,7 +24,10 @@
 .App ol {
   text-align:left;
 }
-
+.App ol li button{
+  color: #fff;
+  background: green;
+}
 .App ol li{
   padding: 5px;
   margin-left: 160px
