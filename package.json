@@ -2,6 +2,7 @@
   "name": "hello-world",
   "version": "0.1.0",
   "private": true,
+  "homepage":" https://jirenguliuk.github.io/todo/build",
   "dependencies": {
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
