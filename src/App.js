@@ -3,15 +3,14 @@ import 'normalize.css';
 import './reset.css';
 import './App.css';
 import TodoInput from './TodoInput';
-import TodoItem from './TodoItem'
+import TodoItem from './TodoItem';
+import * as localStore from './localStore'
  class App extends Component {
      constructor(props){
          super(props)
          this.state = {
             newTodo: '',
-            todoList: [ 
-
-                ]
+            todoList: localStore.load('todoList') || []
          }
      }
         render(){
@@ -42,15 +41,21 @@ import TodoItem from './TodoItem'
                 </div>
                 )
             }
+            // componentDidUpdate 会在组件更新之后调用。如果我们默认「组件更新」等价于「数据更新」，那么就可以把 localStore.save('todoList', this.state.todoList) 写在这个钩子里。
+      componentDidUpdate(){
+            localStore.save('todoList', this.state.todoList)
+   }
         toggle(e, todo){
            todo.status = todo.status === 'completed' ? '' : 'completed'
-           this.setState(this.state) 
+           this.setState(this.state)
+           //localStore.save('todoList', this.state.todoList) 
    }    
         changeTitle(event){
             this.setState({
                 newTodo: event.target.value,
                  todoList: this.state.todoList
            })
+               // localStore.save('todoList', this.state.todoList)
         }    
         addTodo(event){
             this.state.todoList.push({
@@ -63,10 +68,12 @@ import TodoItem from './TodoItem'
                  newTodo: '',
                  todoList: this.state.todoList
         })
+               // localStore.save('todoList', this.state.todoList)
     }
         delete(event, todo){
                 todo.deleted = true
-                this.setState(this.state) 
+                this.setState(this.state)
+               // localStore.save('todoList', this.state.todoList) 
   }
  }
 export default App;
