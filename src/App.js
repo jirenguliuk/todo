@@ -4,7 +4,7 @@ import './reset.css';
 import './App.css';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
-import * as localStore from './localStore'
+import * as localStore from './localStore';
 import AV from 'leancloud-storage'
  var APP_ID = 'PV1tmOqS9J1H5BmkFzKvg6ML-9Nh9j0Va';
  var APP_KEY = 'WUtpgrGPsk1I4sfqWKO70rbK';
