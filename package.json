@@ -4,6 +4,7 @@
   "private": true,
   "homepage": " https://jirenguliuk.github.io/todo/build",
   "dependencies": {
+    "leancloud-storage": "^3.1.0",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
